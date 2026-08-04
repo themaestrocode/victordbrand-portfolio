@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Victor Soderu — Digital Marketing &amp; Brand Strategist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== RESET & ROOTS ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Light theme (default) */
+        :root {
+            --paper: #ECE9DF;
+            --paper-2: #E2DFD2;
+            --ink: #1B1A16;
+            --ink-soft: #4A473E;
+            --stamp: #A9382B;
+            --stamp-dim: #c47767;
+            --gold: #B78A2A;
+            --sage: #5E6B52;
+            --line: rgba(27, 26, 22, 0.16);
+            --card: #F5F3EA;
+            --shadow-sm: 0 4px 12px rgba(27, 26, 22, 0.06);
+            --shadow-hover: 0 12px 32px rgba(27, 26, 22, 0.12);
+            --nav-bg: rgba(236, 233, 223, 0.92);
+            --ticker-bg: #E2DFD2;
+        }
+
+        /* Dark theme */
+        body.dark {
+            --paper: #1E1E1E;
+            --paper-2: #2A2A2A;
+            --ink: #F0EDE6;
+            --ink-soft: #BDBDBD;
+            --stamp: #E0584A;
+            --stamp-dim: #c47767;
+            --gold: #D4A84A;
+            --sage: #7A8B6F;
+            --line: rgba(240, 237, 230, 0.2);
+            --card: #2C2C2C;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.5);
+            --nav-bg: rgba(30, 30, 30, 0.92);
+            --ticker-bg: #2A2A2A;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.2s, color 0.2s;
+        }
+        ::selection {
+            background: var(--stamp);
+            color: var(--paper);
+        }
+
+        .wrap {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ===== NAV ===== */
+        header.nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--nav-bg);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--line);
+            transition: background 0.2s;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 28px;
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+        .nav-mark {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-mark .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--stamp);
+            display: inline-block;
+        }
+        nav.links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        nav.links a {
+            color: var(--ink-soft);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        nav.links a:hover {
+            color: var(--stamp);
+            border-color: var(--stamp);
+        }
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            color: var(--ink-soft);
+            transition: border-color 0.15s, color 0.15s;
+            padding: 0;
+            background: transparent;
+        }
+        .theme-toggle:hover {
+            border-color: var(--stamp);
+            color: var(--stamp);
+        }
+        @media (max-width: 640px) {
+            nav.links {
+                display: none;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 80px 0 48px;
+            position: relative;
+        }
+        .hero .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            color: var(--stamp);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-size: clamp(48px, 9vw, 96px);
+            line-height: 0.96;
+            margin: 0 0 12px;
+            letter-spacing: -0.01em;
+        }
+        .hero .role {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(20px, 3vw, 30px);
+            color: var(--ink-soft);
+            margin: 0 0 20px;
+        }
+        .hero .lede {
+            max-width: 580px;
+            font-size: 17px;
+            color: var(--ink-soft);
+            margin: 0 0 32px;
+        }
+        .hero .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px 48px;
+            margin: 8px 0 32px;
+            padding-top: 8px;
+        }
+        .hero .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .hero .stat-number {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 1;
+            color: var(--stamp);
+        }
+        .hero .stat-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-top: 4px;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .btn {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12.5px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 13px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            display: inline-block;
+            border: 1px solid var(--ink);
+            transition: all 0.15s ease;
+            cursor: pointer;
+            background: transparent;
+            color: var(--ink);
+        }
+        .btn.solid {
+            background: var(--ink);
+            color: var(--paper);
+        }
+        .btn.solid:hover {
+            background: var(--stamp);
+            border-color: var(--stamp);
+        }
+        .btn.outline:hover {
+            border-color: var(--stamp);
+            color: var(--stamp);
+        }
+
+        /* ===== TICKER ===== */
+        .ticker-wrap {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 14px 0;
+            background: var(--ticker-bg);
+            transition: background 0.2s;
+        }
+        .ticker {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 36s linear infinite;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+        .ticker span {
+            margin: 0 22px;
+        }
+        .ticker span.sep {
+            color: var(--stamp);
+        }
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .ticker {
+                animation: none;
+                padding-left: 0;
+            }
+        }
+
+        /* ===== SECTION HEADS ===== */
+        section {
+            padding: 72px 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .sec-head {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .sec-num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--stamp);
+        }
+        .sec-head h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: clamp(28px, 4vw, 38px);
+            margin: 0;
+        }
+        .sec-sub {
+            color: var(--ink-soft);
+            max-width: 640px;
+            margin: -18px 0 38px;
+            font-size: 15.5px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 48px;
+        }
+        @media (max-width: 720px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .about-grid p {
+            font-size: 16px;
+            color: var(--ink-soft);
+            margin: 0 0 16px;
+        }
+        .about-grid .highlight-text {
+            color: var(--stamp);
+            font-weight: 500;
+        }
+
+        .fact-list {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+        }
+        .fact {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+            gap: 12px;
+        }
+        .fact dt {
+            color: var(--ink-soft);
+        }
+        .fact dd {
+            margin: 0;
+            text-align: right;
+        }
+
+        /* ===== TRACK RECORD ===== */
+        .track {
+            display: grid;
+            gap: 0;
+        }
+        .track-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4px;
+            padding: 28px 0;
+            border-top: 1px solid var(--line);
+        }
+        .track-item:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+        .track-item h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 20px;
+            margin: 0 0 2px;
+        }
+        .track-item .co {
+            color: var(--ink-soft);
+            font-size: 13.5px;
+            margin-bottom: 6px;
+            font-style: italic;
+        }
+        .track-item ul {
+            margin: 0;
+            padding-left: 20px; /* Adjusted for default bullets */
+            color: var(--ink-soft);
+            font-size: 14.5px;
+            list-style: disc; /* Explicitly set to disc */
+        }
+        .track-item li {
+            margin-bottom: 5px;
+            /* Removed custom pseudo-element styles */
+        }
+        .highlight {
+            color: var(--stamp);
+            font-weight: 600;
+        }
+
+        /* ===== CASE FILES ===== */
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 720px) {
+            .file-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .file {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 28px 26px 26px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+        }
+        .file:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .file-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+        .file-no {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--ink-soft);
+        }
+        .stamp {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1.5px solid var(--stamp);
+            color: var(--stamp);
+            padding: 3px 10px;
+            border-radius: 20px;
+            transform: rotate(-1deg);
+            white-space: nowrap;
+        }
+        .file h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 20px;
+            margin: 0 0 4px;
+        }
+        .file .role-line {
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            margin-bottom: 12px;
+        }
+        .file blockquote {
+            margin: 0 0 12px;
+            padding-left: 14px;
+            border-left: 2px solid var(--gold);
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 14px;
+            color: var(--ink);
+            line-height: 1.5;
+        }
+        .file .desc {
+            font-size: 13.5px;
+            color: var(--ink-soft);
+        }
+
+        /* ===== GRAPHIC DESIGN GALLERY ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 820px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: #ddd9cc;
+        }
+        .gallery-item .gallery-info {
+            padding: 14px 18px 18px;
+        }
+        .gallery-item .gallery-info .gallery-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--stamp);
+            margin-bottom: 3px;
+        }
+        .gallery-item .gallery-info h4 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0 0 4px;
+        }
+        .gallery-item .gallery-info p {
+            font-size: 13px;
+            color: var(--ink-soft);
+            margin: 0;
+        }
+
+        /* ===== SKILLS ===== */
+        .skill-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-chip {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.03em;
+            border: 1px solid var(--line);
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: var(--ink-soft);
+            background: var(--card);
+            transition: border-color 0.15s, color 0.15s, background 0.2s;
+        }
+        .skill-chip:hover {
+            border-color: var(--stamp);
+            color: var(--stamp);
+        }
+
+        /* ===== CONTACT / FOOTER ===== */
+        footer {
+            padding: 64px 0 56px;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 28px 0 44px;
+        }
+        .contact-card {
+            flex: 1;
+            min-width: 200px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            transition: border-color 0.15s, box-shadow 0.15s, background 0.2s;
+        }
+        .contact-card:hover {
+            border-color: var(--stamp);
+            box-shadow: var(--shadow-sm);
+        }
+        .contact-card .label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--stamp);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+        .contact-card .value {
+            font-family: 'Fraunces', serif;
+            font-size: 19px;
+        }
+        .foot-note {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            color: var(--ink-soft);
+        }
+        .foot-note a {
+            color: var(--stamp);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+        .foot-note a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== RESPONSIVE TWEAKS ===== */
+        @media (max-width: 480px) {
+            .hero .stats-row {
+                gap: 20px;
+            }
+            .hero .stat-number {
+                font-size: 22px;
+            }
+            .contact-card .value {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAV ===== -->
+    <header class="nav">
+        <div class="nav-inner">
+            <div class="nav-mark"><span class="dot"></span> V. AS — BRAND &amp; SOCIAL</div>
+            <nav class="links">
+                <a href="#about">About</a>
+                <a href="#track">Experience</a>
+                <a href="#work">Campaigns</a>
+                <a href="#designs">Designs</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wrap">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero" style="border-bottom:none; padding-bottom:0;">
+            <span class="eyebrow">Portfolio — Digital Marketing &amp; Brand Strategy</span>
+            <h1>Victor<br />Soderu</h1>
+            <p class="role">Social Media, Brand &amp; Digital Marketing Strategist</p>
+            <p class="lede">
+                I build brand presence across platforms — from social strategy and content calendars to full campaign execution and analytics. With a tech background and hands-on experience across industries, I bridge the gap between creative storytelling and data-driven decision-making.
+            </p>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12+</span>
+                    <span class="stat-label">Brands Managed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Industries Served</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%+</span>
+                    <span class="stat-label">Avg. Engagement Lift</span>
+                </div>
+            </div>
+
+            <div class="cta-row">
+                <a class="btn solid" href="mailto:victorsoderu@gmail.com">Email Me</a>
+                <a class="btn outline" href="https://wa.me/2349070986581" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="btn outline" href="#work">View Campaigns</a>
+            </div>
+        </section>
+
+        <!-- ===== TICKER ===== -->
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <span>Social Strategy</span><span class="sep">/</span>
+                <span>Brand Management</span><span class="sep">/</span>
+                <span>Content Marketing</span><span class="sep">/</span>
+                <span>Campaign Execution</span><span class="sep">/</span>
+                <span>Community Management</span><span class="sep">/</span>
+                <span>Analytics &amp; Reporting</span><span class="sep">/</span>
+                <span>Copywriting</span><span class="sep">/</span>
+                <span>Influencer Collaboration</span><span class="sep">/</span>
+                <span>Paid Social</span><span class="sep">/</span>
+                <span>Social Strategy</span><span class="sep">/</span>
+                <span>Brand Management</span><span class="sep">/</span>
+                <span>Content Marketing</span><span class="sep">/</span>
+                <span>Campaign Execution</span><span class="sep">/</span>
+                <span>Community Management</span><span class="sep">/</span>
+                <span>Analytics &amp; Reporting</span>
+            </div>
+        </div>
+
+        <!-- ===== ABOUT ===== -->
+        <section id="about">
+            <div class="sec-head"><span class="sec-num">01</span><h2>About</h2></div>
+            <div class="about-grid">
+                <div>
+                    <p>
+                        I'm a social media and brand strategist with a tech background — which means I think about audience behavior, content performance, and platform algorithms with a systems mindset. I don't just post; I plan, execute, measure, and optimize.
+                    </p>
+                    <p>
+                        Over the past six years, I've developed marketing contents and worked with brands across <span class="highlight-text">health &amp; wellness, legal services, maritime, SaaS, security, creative arts, nonprofit, and home services</span>. Each industry taught me a new audience, a new tone, and a new way to earn trust through content.
+                    </p>
+                    <p>
+                        From building content calendars and writing conversion copy to running ad campaigns and reporting on ROI, I handle the full spectrum of brand marketing.
+                    </p>
+                </div>
+                <dl class="fact-list">
+                    <div class="fact"><dt>Based in</dt><dd>Lagos, Nigeria</dd></div>
+                    <div class="fact"><dt>Platforms</dt><dd>Instagram, Facebook, LinkedIn,<br />X, WhatsApp Business, YouTube,<br /> Jiji, WordPress</dd></div>
+                    <div class="fact"><dt>Tools</dt><dd>Meta Business Suite, Google Analytics,<br />Buffer, MailChimp, Hubspot,<br />Canva, CorelDraw</dd></div>
+                    <div class="fact"><dt>Focus</dt><dd>Brand strategy, Brand visibility,<br />High search engine ranking, campaign ROI,<br />Customer engagement</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- ===== TRACK RECORD (no dates, standard bullets) ===== -->
+        <section id="track">
+            <div class="sec-head"><span class="sec-num">02</span><h2>Experience</h2></div>
+            <div class="track">
+                <div class="track-item">
+                    <div>
+                        <h3>Technical &amp; Marketing Officer</h3>
+                        <div class="co">Torima Technology Limited</div>
+                        <ul>
+                            <li>Developed and executed social media strategy across platforms</li>
+                            <li>Managed the company's Google Business Profile and Jiji presence — creating ads, responding to inquiries, converting leads into customers, and growing engagement by <span class="highlight">over 100%</span> through targeted content and ad campaigns</li>
+                            <li>Produced marketing graphics, wrote promotional copy, and tracked campaign performance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="track-item">
+                    <div>
+                        <h3>Lead Content Strategist &amp; Brand Writer</h3>
+                        <div class="co">Fred's Agency (Remote)</div>
+                        <ul>
+                            <li>Developed SEO-driven content strategies for local and international clients — blog posts, website copy, and social media content</li>
+                            <li>Managed content calendars, conducted keyword research, and used analytics tools to monitor and refine performance</li>
+                            <li>Led a team of writers, ensuring brand consistency and voice alignment across all client deliverables</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="track-item">
+                    <div>
+                        <h3>Operations Coordinator</h3>
+                        <div class="co">He Eleven 1. Consulting</div>
+                        <ul>
+                            <li>Designed marketing graphics and managed client communication, ensuring a seamless brand experience from first contact to project delivery</li>
+                            <li>Supported the development of marketing materials and internal brand assets</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CASE FILES ===== -->
+        <section id="work">
+            <div class="sec-head"><span class="sec-num">03</span><h2>Campaigns &amp; Case Studies</h2></div>
+            <p class="sec-sub">
+                A selection of social media campaigns, brand launches, and content strategies I've led — each one tailored to a unique audience and measured against clear business goals.
+            </p>
+
+            <div class="file-grid">
+
+                <!-- 1 -->
+                <div class="file">
+                    <div class="file-top"><span class="file-no">CAMPAIGN 01</span><span class="stamp">Social Growth</span></div>
+                    <h3>Torima Tech — Social Rebrand</h3>
+                    <div class="role-line">Social media strategy · content calendar · ad management</div>
+                    <blockquote>"Managed the full social presence, from zero to consistent engagement — turning a dormant account into a lead-generating channel."</blockquote>
+                    <div class="desc">Built a content calendar, designed visuals using graphic design tools, ran Meta ads, and reported weekly on performance. Engagement more than doubled within three months.</div>
+                </div>
+
+                <!-- 2 -->
+                <div class="file">
+                    <div class="file-top"><span class="file-no">CAMPAIGN 02</span><span class="stamp">Brand Launch</span></div>
+                    <h3>8Imagine Illustration Studio</h3>
+                    <div class="role-line">Brand voice · website copy · launch campaign</div>
+                    <blockquote>"Wrote the full website copy and campaign messaging for a new illustration brand targeting gifting occasions."</blockquote>
+                    <div class="desc">Developed a warm, trust-building brand voice, wrote homepage, how-it-works, and FAQ copy, and supported the launch with social content.</div>
+                </div>
+
+                <!-- 3 -->
+                <div class="file">
+                    <div class="file-top"><span class="file-no">CAMPAIGN 03</span><span class="stamp">DTC / Haircare</span></div>
+                    <h3>Onion Amla — Healthy Roots</h3>
+                    <div class="role-line">Product page · social content · influencer brief</div>
+                    <blockquote>"Change your hair growth narrative — product messaging that converted skeptics into loyal customers."</blockquote>
+                    <div class="desc">Wrote the full product page, tiered pricing copy, and founder story. Created social content templates and an influencer collaboration brief that drove UGC.</div>
+                </div>
+
+                <!-- 4 -->
+                <div class="file">
+                    <div class="file-top"><span class="file-no">CAMPAIGN 04</span><span class="stamp">SaaS</span></div>
+                    <h3>Drip Pages</h3>
+                    <div class="role-line">Full website copy · feature marketing · onboarding flow</div>
+                    <blockquote>"Do everything with just one link — a link-in-bio SaaS written for creators and business owners alike."</blockquote>
+                    <div class="desc">Wrote the homepage, feature pages, about section, and onboarding copy. Structured the content to highlight use cases for both creators and B2B users.</div>
+                </div>
+
+                <!-- 5 -->
+                <div class="file">
+                    <div class="file-top"><span class="file-no">CAMPAIGN 05</span><span class="stamp">Nonprofit / E‑commerce</span></div>
+                    <h3>GMJ Media</h3>
+                    <div class="role-line">Mission-driven branding · social storytelling · shop copy</div>
+                    <blockquote>"Buy from us to support young adults with special needs — blending commerce with cause."</blockquote>
+                    <div class="desc">Wrote the homepage, mission page, and shop copy. Developed a social content strategy that highlighted beneficiary stories, driving both sales and donations.</div>
+                </div>
+
+                <!-- 6 -->
+                <div class="file">
+                    <div class="file-top"><span class="file-no">CAMPAIGN 06</span><span class="stamp">B2B / Maritime</span></div>
+                    <h3>Maritime Support Leasing LLC</h3>
+                    <div class="role-line">B2B website copy · service pages · lead magnets</div>
+                    <blockquote>"The high-quality boats you need, just within your reach — written for government and institutional buyers."</blockquote>
+                    <div class="desc">Researched and wrote technical B2B copy for patrol-boat leasing and maintenance services. Structured content to build authority and trust with procurement officers.</div>
+                </div>
+
+                <!-- 7 -->
+                <div class="file">
+                    <div class="file-top"><span class="file-no">CAMPAIGN 07</span><span class="stamp">Home Services</span></div>
+                    <h3>GALK Renovations LLC</h3>
+                    <div class="role-line">Brand positioning · homepage copy · trust signals</div>
+                    <blockquote>"Let's bring the picture in your mind into admirable reality — warm, trust-building copy for home renovation."</blockquote>
+                    <div class="desc">Wrote the homepage, "why choose us" section, and service differentiators. Structured the copy around customer pain points and project outcomes.</div>
+                </div>
+
+                <!-- 8 -->
+                <div class="file">
+                    <div class="file-top"><span class="file-no">CAMPAIGN 08</span><span class="stamp">Legal Services</span></div>
+                    <h3>Attorney Carl Barkemeyer</h3>
+                    <div class="role-line">SEO practice-area page · plain-language legal copy</div>
+                    <blockquote>"A goal-oriented criminal defense attorney — making local ordinance law accessible to prospective clients."</blockquote>
+                    <div class="desc">Researched and wrote an SEO-optimized practice-area page explaining complex legal concepts in plain language. Ranked #1 for the target search term within 6 weeks.</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== GRAPHIC DESIGN GALLERY ===== -->
+        <section id="designs">
+            <div class="sec-head"><span class="sec-num">04</span><h2>Design Skill Showcase</h2></div>
+            <p class="sec-sub">
+                A selection of marketing graphics I've designed — social media posts, flyers, brand assets, and promotional materials created for various clients and campaigns.
+            </p>
+
+            <div class="gallery-grid">
+                <!-- Replace the src URLs below with your actual image files -->
+                <!-- You can use relative paths like "images/design-1.jpg" or full URLs -->
+
+                <div class="gallery-item">
+                    <img src="images/20260804_173705.jpg" alt="Social media post design" loading="lazy" />
+                    <div class="gallery-info">
+                        <div class="gallery-label">Social Post</div>
+                        <h4>Torima Technology — Services Flyer</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/20260804_173937.jpg" alt="Social media post design" loading="lazy" />
+                    <div class="gallery-info">
+                        <div class="gallery-label">Social Post</div>
+                        <h4>Torima Technology — Promo Flyer</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/20260804_173958.jpg" alt="Brand identity design" loading="lazy" />
+                    <div class="gallery-info">
+                        <div class="gallery-label">Brand Asset</div>
+                        <h4>Torima Technology — Awareness Poster</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/20260804_173820.jpg" alt="Product packaging design" loading="lazy" />
+                    <div class="gallery-info">
+                        <div class="gallery-label">Infographic</div>
+                        <h4>He Eleven 1. Consulting — Services Banner</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/20260804_174021.jpg" alt="Infographic design" loading="lazy" />
+                    <div class="gallery-info">
+                        <div class="gallery-label">Product Graphic</div>
+                        <h4>Flush It Out — Product Launch</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/20260804_211648.png" alt="Campaign visual" loading="lazy" />
+                    <div class="gallery-info">
+                        <div class="gallery-label">Brand Asset</div>
+                        <h4>GD Ventures — Logo &amp; Visual Identity</h4>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== SKILLS ===== -->
+        <section>
+            <div class="sec-head"><span class="sec-num">05</span><h2>Skills &amp; Tools</h2></div>
+            <div class="skill-cloud">
+                <span class="skill-chip">Social Media Strategy</span>
+                <span class="skill-chip">Brand Management</span>
+                <span class="skill-chip">Content Strategy &amp; Calendars</span>
+                <span class="skill-chip">Copywriting &amp; Editing</span>
+                <span class="skill-chip">Meta Business Suite</span>
+                <span class="skill-chip">Graphic Design</span>
+                <span class="skill-chip">Google Analytics</span>
+                <span class="skill-chip">Buffer / Hootsuite</span>
+                <span class="skill-chip">Community Management</span>
+                <span class="skill-chip">Campaign Management</span>
+                <span class="skill-chip">Lead Generation</span>
+                <span class="skill-chip">SEO &amp; Keyword Research</span>
+                <span class="skill-chip">Paid Social (Meta Ads)</span>
+                <span class="skill-chip">Reporting &amp; Analytics</span>
+                <span class="skill-chip">WordPress CMS</span>
+                <span class="skill-chip">Email Marketing</span>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <footer id="contact">
+            <div class="sec-head"><span class="sec-num">06</span><h2>Let's Connect</h2></div>
+            <p class="sec-sub" style="margin-bottom:0;">
+                Available for Social Media Manager, Brand Manager, or Digital Marketing roles (onsite and remote).
+            </p>
+            <div class="contact-row">
+                <a class="contact-card" href="mailto:victorsoderu@gmail.com">
+                    <div class="label">Email</div>
+                    <div class="value">victorsoderu@gmail.com</div>
+                </a>
+                <a class="contact-card" href="https://wa.me/2349070986581" target="_blank" rel="noopener">
+                    <div class="label">Phone / WhatsApp</div>
+                    <div class="value">+234 (0) 907 098 6581</div>
+                </a>
+                <div class="contact-card" style="cursor:default;">
+                    <div class="label">Location</div>
+                    <div class="value">Lagos, Nigeria</div>
+                </div>
+            </div>
+            <div class="foot-note">© Victor Abimbola Soderu — Portfolio for Social Media / Brand Management roles.</div>
+            <div class="foot-note" style="margin-top: 10px; font-size: 11px;">
+                Developed by: <a href="https://themaestrocode.vercel.app" target="_blank" rel="noopener noreferrer">themaestrocode</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Theme toggle
+        (function() {
+            const toggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const stored = localStorage.getItem('theme');
+
+            // Set initial theme
+            if (stored === 'dark' || (!stored && prefersDark)) {
+                body.classList.add('dark');
+                toggle.textContent = '🌙';
+            } else {
+                toggle.textContent = '☀️';
+            }
+
+            toggle.addEventListener('click', function() {
+                body.classList.toggle('dark');
+                const isDark = body.classList.contains('dark');
+                toggle.textContent = isDark ? '🌙' : '☀️';
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        })();
+    </script>
+</body>
+</html>
