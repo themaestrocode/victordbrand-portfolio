@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Psychology of Social Media Engagement — Victor Soderu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        :root {
+            --paper: #ECE9DF;
+            --paper-2: #E2DFD2;
+            --ink: #1B1A16;
+            --ink-soft: #4A473E;
+            --stamp: #A9382B;
+            --gold: #B78A2A;
+            --line: rgba(27, 26, 22, 0.16);
+            --card: #F5F3EA;
+            --radius: 2px;
+        }
+        body.dark {
+            --paper: #1E1E1E;
+            --paper-2: #2A2A2A;
+            --ink: #F0EDE6;
+            --ink-soft: #BDBDBD;
+            --stamp: #E0584A;
+            --gold: #D4A84A;
+            --line: rgba(240, 237, 230, 0.2);
+            --card: #2C2C2C;
+        }
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.55;
+            transition: background 0.2s, color 0.2s;
+        }
+        ::selection {
+            background: var(--stamp);
+            color: var(--paper);
+        }
+        .wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Theme toggle */
+        .theme-toggle-wrap {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 28px;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--ink-soft);
+            transition: border-color 0.15s, color 0.15s;
+            padding: 0;
+            background: transparent;
+        }
+        .theme-toggle:hover {
+            border-color: var(--stamp);
+            color: var(--stamp);
+        }
+
+        .article-back {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin: 8px 0 32px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--line);
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .article-back:hover {
+            color: var(--stamp);
+            border-color: var(--stamp);
+        }
+        .article-back::before {
+            content: "← ";
+        }
+
+        .article-category {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--stamp);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .article-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: clamp(30px, 4.5vw, 42px);
+            line-height: 1.2;
+            margin: 0 0 12px;
+        }
+        .article-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--ink-soft);
+            opacity: 0.7;
+            display: block;
+            margin-bottom: 32px;
+        }
+        .article-body {
+            font-size: 17px;
+            line-height: 1.9;
+            color: var(--ink-soft);
+        }
+        .article-body h4 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 20px;
+            margin: 36px 0 12px;
+            color: var(--ink);
+        }
+        .article-body p {
+            margin: 0 0 18px;
+        }
+        .article-body ul,
+        .article-body ol {
+            margin: 0 0 18px;
+            padding-left: 26px;
+        }
+        .article-body ul li,
+        .article-body ol li {
+            margin-bottom: 6px;
+        }
+        .article-body blockquote {
+            margin: 24px 0;
+            padding: 16px 28px;
+            border-left: 4px solid var(--gold);
+            background: var(--card);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-style: italic;
+            color: var(--ink);
+        }
+        .article-body .highlight-text {
+            color: var(--stamp);
+            font-weight: 500;
+        }
+
+        .foot-note {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            color: var(--ink-soft);
+            margin-top: 60px;
+            padding: 32px 0 40px;
+            border-top: 1px solid var(--line);
+        }
+        .foot-note a {
+            color: var(--stamp);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+        .foot-note a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 640px) {
+            .article-body {
+                font-size: 15.5px;
+            }
+            .article-body blockquote {
+                padding: 12px 18px;
+            }
+            .theme-toggle-wrap {
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+    </div>
+
+    <div class="wrap">
+
+        <a href="index.html" class="article-back">Back to Portfolio</a>
+
+        <span class="article-category">Strategy</span>
+        <h1 class="article-title">The Psychology of Social Media Engagement — Why People Really Hit "Like"</h1>
+        <span class="article-meta">⌛ 6 min read</span>
+
+        <div class="article-body">
+
+            <p>In the early days of social media, engagement was a simple numbers game. More followers meant more reach. More likes meant more visibility. But the landscape has shifted dramatically.</p>
+
+            <p>Today, brands are competing not just for attention, but for genuine, meaningful interactions that build lasting relationships. Understanding the psychology behind why people engage is no longer optional—it's essential.</p>
+
+            <h4>The Need for Validation</h4>
+            <p>At its core, social media engagement is driven by a fundamental human need: validation. When someone likes a post, they're signaling alignment with the content, the brand, or the community. Research shows that receiving positive social feedback triggers the release of dopamine, the same neurotransmitter associated with pleasure and reward.</p>
+
+            <p>For brands, this means creating content that makes your audience feel seen, understood, and valued. It's not about bragging; it's about resonance.</p>
+
+            <p>Take Nike's social strategy, for example. Their content rarely focuses on the technical features of their products. Instead, they tell stories of perseverance, courage, and achievement—values their audience wants to be associated with. When someone shares a Nike post, they're not just sharing content; they're sharing a piece of their identity.</p>
+
+            <h4>The Reciprocity Principle</h4>
+            <p>In psychology, the reciprocity principle suggests that when someone gives us something, we feel compelled to give back. On social media, this translates into engagement patterns. Brands that consistently provide value—through education, entertainment, or inspiration—naturally receive higher engagement rates.</p>
+
+            <p>I've seen this firsthand in my work with Torima Technology. When we shifted from purely promotional content to educational and value-driven posts, engagement increased by over 100% within three months. The lesson? Give first, and the engagement will follow.</p>
+
+            <h4>Social Proof and FOMO</h4>
+            <p>People are inherently social creatures. We look to others to determine what's worth paying attention to. This is called social proof, and it's one of the most powerful drivers of engagement on social media.</p>
+
+            <p>When a post already has hundreds of likes, new viewers are more likely to engage with it themselves. It's the "if everyone else is doing it, it must be worth doing" mentality. Similarly, FOMO (Fear Of Missing Out) drives urgency—when people see others engaging with content, they don't want to be left out.</p>
+
+            <p>Brands can leverage this by:</p>
+            <ul>
+                <li>Highlighting user-generated content to show real people engaging with their products</li>
+                <li>Creating time-sensitive campaigns that encourage immediate action</li>
+                <li>Showcasing social proof through testimonials and case studies</li>
+            </ul>
+
+            <h4>Emotional Triggers</h4>
+            <p>Content that evokes strong emotions is more likely to be shared. The most shareable content typically taps into positive emotions like awe, inspiration, and amusement, or "high-arousal" negative emotions like anger and anxiety.</p>
+
+            <p>A study by Jonah Berger at the University of Pennsylvania found that content that evokes high-arousal emotions is significantly more likely to go viral than content that evokes low-arousal emotions. This explains why inspirational stories and thought-provoking content often perform better than dry, informational posts.</p>
+
+            <h4>Identity Signaling</h4>
+            <p>Why do people share political content? Why do they proudly display their brand preferences? Because social media is a platform for identity expression. When someone shares a post, they're telling the world something about who they are, what they believe, and what they stand for.</p>
+
+            <p>The brands that succeed understand this. They create content that helps people express their identity—through values, aesthetics, or affiliation. When a customer shares your brand content, they're not just advertising your product; they're advertising themselves.</p>
+
+            <h4>Putting It All Together</h4>
+            <p>Understanding these psychological drivers is the first step. The second is applying them strategically:</p>
+            <ul>
+                <li><strong>Create content that validates your audience</strong> — Make them feel seen and understood.</li>
+                <li><strong>Provide value without asking for anything in return</strong> — Build trust through generosity.</li>
+                <li><strong>Showcase social proof</strong> — Let your community speak for you.</li>
+                <li><strong>Evoke emotion</strong> — Stop being boring. Create content that makes people feel something.</li>
+                <li><strong>Help people express their identity</strong> — Give them content that makes them look good when they share it.</li>
+            </ul>
+
+            <p>At the end of the day, engagement isn't about manipulating people—it's about understanding them. When you genuinely understand what drives your audience, you can create content that connects, resonates, and converts.</p>
+
+        </div>
+
+        <div class="foot-note">
+            © Victor Abimbola Soderu — <a href="index.html">Back to Portfolio</a>
+        </div>
+
+    </div>
+
+    <script>
+        (function() {
+            const toggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const stored = localStorage.getItem('theme');
+            if (stored === 'dark') {
+                body.classList.add('dark');
+                toggle.textContent = '🌙';
+            } else {
+                toggle.textContent = '☀️';
+            }
+            toggle.addEventListener('click', function() {
+                body.classList.toggle('dark');
+                const isDark = body.classList.contains('dark');
+                toggle.textContent = isDark ? '🌙' : '☀️';
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        })();
+    </script>
+</body>
+</html>
